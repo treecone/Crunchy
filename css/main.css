@@ -1,0 +1,152 @@
+body
+{
+    background-color: #f6f6f6;
+    margin: 0px;
+    padding: 0px;
+}
+
+@font-face {
+    font-family: "Traffolight";
+    src: url("/fonts/Traffolight.otf");
+}
+
+/*----------------Navbar------------------*/
+
+header
+{
+    position: absolute;
+    justify-content: center;
+    background-color: #f6f6f6;
+    width: 100%;
+    height: 12.5%;
+    box-shadow: 0px 50px 100px #e4e4e4;
+}
+
+.Saved_Button
+{
+    position: absolute;
+    top: 22%;
+    left: 4%;
+    background-color: transparent;
+    border: none;
+    width: 14vw;
+}
+
+header p
+{
+    position: absolute;
+    margin: 0%;
+    padding: 1%;
+    top: 20%;
+    left: 31%;
+    font-size: 10vw;
+    font-weight: 1000;
+    font-family: Traffolight;
+    background: -webkit-linear-gradient(#70d33f, #4bd593);
+    background-clip: initial;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.Saved_Button img
+{
+    width: 100%;
+    height: auto;
+}
+
+/*-------------FOOD_WINDOW-------------*/
+
+#foodWindow
+{
+    top: 12.5%;
+    position: absolute;
+    width: 100%;
+    height: 67.5%;
+}
+
+/*-------------TITLE_WINDOW-------------*/
+
+#titleWindow
+{
+    top: 80%;
+    position: absolute;
+    height: 20%;
+    background-color: #f6f6f6;
+    width: 100%;
+    box-shadow: 0px -50px 100px #e4e4e4;
+}
+
+#titleWindow h1
+{
+    position: absolute;
+    margin: 0%;
+    padding: 1%;
+    top: 5%;
+    left: 5%;
+    font-size: 8vw;
+    font-weight: 550;
+    font-family: Traffolight;
+    color: rgb(29, 29, 29);
+}
+
+#titleWindow p
+{
+    position: absolute;
+    margin: 0%;
+    padding: 1%;
+    top: 30%;
+    left: 5%;
+    font-size: 5.5vw;
+    font-weight: 100;
+    font-family: Traffolight;
+    color: rgb(167, 167, 167);
+}
+
+/*-------------SlideInWindowFromTop-------------*/
+
+#savedFoodWindow
+{
+    background-color: white;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    box-shadow: 0px 50px 100px #e4e4e4;
+    top: -1514px;
+    /*top -1514px for sync*/
+
+    /*------------------*/
+    transform: translateY(1514px);
+    transition: transform 1s ease-in-out;
+}
+
+#savedFoodWindow-view
+{
+    transform: translateY(0%);
+}
+
+#savedFoodWindow .Saved_Button
+{
+    position: absolute;
+    top: 90%;
+    left: 4%;
+    background-color: transparent;
+    border: none;
+    width: 14vw;
+}
+
+#savedFoodWindow p
+{
+    position: absolute;
+    margin: 0%;
+    padding: 1%;
+    top: 89%;
+    left: 31%;
+    font-size: 10vw;
+    font-weight: 1000;
+    font-family: Traffolight;
+    background: -webkit-linear-gradient(#70d33f, #4bd593);
+    background-clip: initial;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
