@@ -111,13 +111,13 @@ body {
 }
 .demo__card__img {
   overflow: hidden;
-  width: 10rem;
-  height: 10rem;
+  width: 90%;
+  height: 90%;
   margin: 0 auto 1.5rem;
-  border-radius: 50%;
   border: 0.5rem solid #ffffff;
   background-image: url("//s3-us-west-2.amazonaws.com/s.cdpn.io/142996/profile/profile-512_5.jpg");
   background-size: cover;
+  display: flex;
 }
 .demo__card__name {
   text-align: center;
