@@ -22,7 +22,7 @@ header
     box-shadow: 0px 50px 100px #e4e4e4;
 }
 
-.Saved_Button
+.Saved_Button1
 {
     position: absolute;
     top: 22%;
@@ -48,7 +48,7 @@ header p
     -webkit-text-fill-color: transparent;
 }
 
-.Saved_Button img
+.Saved_Button1 img
 {
     width: 100%;
     height: auto;
@@ -112,11 +112,12 @@ header p
     height: 100%;
     z-index: 5;
     box-shadow: 0px 50px 100px #e4e4e4;
-    top: -1514px;
+    /*top: -1514px;*/
     /*top -1514px for sync*/
 
     /*------------------*/
-    transform: translateY(1514px);
+    visibility: hidden;
+    /*transform: translateY(1514px);*/
     transition: transform 1s ease-in-out;
 }
 
@@ -125,7 +126,7 @@ header p
     transform: translateY(0%);
 }
 
-#savedFoodWindow .Saved_Button
+.Saved_Button2
 {
     position: absolute;
     top: 90%;
@@ -133,6 +134,12 @@ header p
     background-color: transparent;
     border: none;
     width: 14vw;
+}
+
+.Saved_Button2 img
+{
+    width: 100%;
+    height: auto;
 }
 
 #savedFoodWindow p
