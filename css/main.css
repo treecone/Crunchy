@@ -22,7 +22,7 @@ header
     box-shadow: 0px 50px 100px #e4e4e4;
 }
 
-.Saved_Button1
+#Saved_Button1
 {
     position: absolute;
     top: 22%;
@@ -48,7 +48,7 @@ header p
     -webkit-text-fill-color: transparent;
 }
 
-.Saved_Button1 img
+#Saved_Button1 img
 {
     width: 100%;
     height: auto;
@@ -112,13 +112,13 @@ header p
     height: 100%;
     z-index: 5;
     box-shadow: 0px 50px 100px #e4e4e4;
-    /*top: -1514px;*/
+    top: -100%;
     /*top -1514px for sync*/
 
     /*------------------*/
-    visibility: hidden;
+    visibility: visible;
     /*transform: translateY(1514px);*/
-    transition: transform 1s ease-in-out;
+    transition: transform 2s ease-out;
 }
 
 #savedFoodWindow-view
@@ -126,7 +126,7 @@ header p
     transform: translateY(0%);
 }
 
-.Saved_Button2
+#Saved_Button2
 {
     position: absolute;
     top: 90%;
@@ -136,7 +136,7 @@ header p
     width: 14vw;
 }
 
-.Saved_Button2 img
+#Saved_Button2 img
 {
     width: 100%;
     height: auto;
