@@ -56,7 +56,7 @@ header p
     left: 31%;
     font-size: 10vw;
     font-weight: 1000;
-    font-family: Traffolight;
+    font-family: 'Comfortaa', cursive;
     background: -webkit-linear-gradient(#70d33f, #4bd593);
     background-clip: initial;
     -webkit-background-clip: text;
@@ -83,7 +83,7 @@ header p
 
 #titleWindow
 {
-    top: 80%;
+    top: 82%;
     position: absolute;
     height: 20%;
     background-color: #ffffff;
@@ -92,9 +92,9 @@ header p
 
 #titleWindow h1
 {
-    font-size: 8vw;
+    font-size: 7vw;
     font-weight: 550;
-    font-family: Traffolight;
+    font-family: 'Comfortaa', cursive;
     color: rgb(29, 29, 29);
 }
 
@@ -263,12 +263,14 @@ header p
     position: absolute;
     top: 41%;
     left: 7.5%;
-    font-family: Traffolight;
+    font-family: 'Comfortaa', cursive;
     width: 85%;
     height: 54%;
-    border-radius: 0% 0% 8% 8%;
+    border-radius: 0% 0% 3% 3%;
     overflow-y: auto;
 }
+
+
 
 #foodList h2
 {
@@ -284,6 +286,7 @@ header p
 
 #foodList dd
 {
+    font-family: 'Comfortaa', cursive;
     font-size: 2vw;
     margin: auto 8% 5% 5%;
 }
