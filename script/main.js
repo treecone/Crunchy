@@ -46,14 +46,17 @@ function moveFoodWindow()
     }
 }
 
-function moveDetailWindow ()
+function moveDetailWindow (e)
 {
+    console.log("Moving detail window");
+    console.log(e.target);
     if(detailMenu.className == "up")
     {
         detailMenu.className = "";
     }
     else
     {
+        loadDetails(this);
         detailMenu.className = "up";
     }
 }
@@ -62,11 +65,39 @@ function createGalleryImage(imageLink, id)
 {
     let galleryElement = `<fiqure class="galleryImg"><img src="${imageLink}" alt="ImageGalleryPhoto"></fiqure>`;
     //galleryElement.dataset.galleryId = id;
-    document.querySelector("#savedImages").innerHTML += galleryElement;
+    document.querySelector("#savedImages").insertAdjacentHTML("beforeend", galleryElement);
+    console.log(document.querySelector("#savedImages"));
     document.querySelector("#savedImages").lastChild.addEventListener("click", moveDetailWindow);
     document.querySelector("#savedImages").lastChild.dataset.galleryId = id;
-    console.log("We are herer");
 }
+
+function loadDetails(galleryElement)
+{
+    console.log(galleryElement);
+    let id = parseInt(galleryElement.dataset.galleryId);
+    let detailWindow = document.querySelector("#foodDetailWindow");
+    detailWindow.querySelector("#foodPicture").src = savedFoods[id].recipe.strMealThumb;
+    detailWindow.querySelector("#foodList h2").innerHTML = savedFoods[id].recipe.strMeal;
+    let price = 0;
+
+    let list = detailWindow.querySelector("#foodList dl");
+    list.innerHTML = "";
+    for(let i = 0; i < savedFoods[id].ingredients.length; i++)
+    {
+        if(savedFoods[id].wegIngredients[i] && savedFoods[id].wegPrices[i])
+        {
+            price += savedFoods[id].wegPrices[i];
+            list.innerHTML += `<dt>${savedFoods[id].ingredients[i]}</dt><dd>Wegmans: ${savedFoods[id].wegIngredients[i].name} for $${savedFoods[id].wegPrices[i]}</dd>`;
+        }
+        else if(!savedFoods[id].wegIngredients[i])
+            list.innerHTML += `<dt>${savedFoods[id].ingredients[i]}</dt><dd>Wegmans: Product could not be found.</dd>`;
+        else if(!savedFoods[id].wegPrices[i])
+            list.innerHTML += `<dt>${savedFoods[id].ingredients[i]}</dt><dd>Wegmans: ${savedFoods[id].wegIngredients[i].name} : Price not found.</dd>`;
+    }
+    detailWindow.querySelector("#foodList p").innerHTML = "Estimated Price: " + price; 
+    detailWindow.querySelector("form").action = savedFoods[id].recipe.strSource;
+}
+
 function ILoveWhales ()
 {
     document.querySelector("img#foodPicture").src = "media/whaleB.jpg"

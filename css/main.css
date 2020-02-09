@@ -28,7 +28,7 @@ header
 {
     position: absolute;
     justify-content: center;
-    background-color: #f6f6f6;
+    background-color: #ffffff;
     width: 100%;
     height: 12.5%;
 }
@@ -86,7 +86,7 @@ header p
     top: 80%;
     position: absolute;
     height: 20%;
-    background-color: #f6f6f6;
+    background-color: #ffffff;
     width: 100%;
 }
 
@@ -164,19 +164,20 @@ header p
 #savedImages
 {
     position: absolute;
-    background-color: grey;
+    background: -webkit-linear-gradient(#70d33f, #4bd593);
     width:90%;
     height: 85%;
     top: 2.5%;
     left: 5%;
-    padding: 50px;
+    padding: 30px;
+    border-radius: 50px;
 
     overflow-y: auto;
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(2, auto);
     grid-template-rows: repeat(20, auto);
-    grid-gap: 25px 25px;
+    grid-gap: 40px 40px;
 }
 
 .galleryImg
@@ -190,6 +191,7 @@ header p
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 50px;
 }
 
 /*--------Detail Window-----*/
