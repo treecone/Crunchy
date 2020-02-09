@@ -60,9 +60,7 @@ function moveDetailWindow ()
 
 function createGalleryImage(imageLink, id)
 {
-    console.log("We here");
     let galleryElement = `<fiqure class="galleryImg"><img src="${imageLink}" alt="ImageGalleryPhoto"></fiqure>`;
     //galleryElement.dataset.galleryId = id;
-    document.querySelector("#savedImages").innerHTML = galleryElement;
-    console.log("We are herer");
+    document.querySelector("#savedImages").innerHTML += galleryElement;
 }

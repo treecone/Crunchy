@@ -12,6 +12,8 @@ let savedFoods = [];
 
 async function saveRecipe(saveRecipe)
 {
+    wegIngredients = [];
+    wegPrices = [];
     loadingFinished = false;
     console.log(saveRecipe);
     for(let i = 0; i < saveRecipe.ingredients.length; i++)
@@ -38,13 +40,11 @@ async function saveRecipe(saveRecipe)
             } else {
                 if(wegIngredients[i] != undefined)
                 {
-                    console.log("Find price");
                     findPrice(wegIngredients[i]);
                     lookupReady = false;
                 }
                 else
                 {
-                    console.log("Pushing undefined");
                     wegPrices.push(undefined);
                 }
             }

@@ -90,12 +90,13 @@ $(document).ready(function () {
 
 function saveFood()
 {
+    console.log("saving");
     let ct = counter;
     saveRecipe(recipeArray[counter]).then(value => {
+      console.log("saving step 2");
       savedFoods.push(value);
       localStorage.setItem("crunchy-saved-items", JSON.stringify(savedFoods));
-      console.log(value);
-      createGalleryImage(value.recipe.srcMealThumb, savedFoods.length - 1);
+      createGalleryImage(value.recipe.strMealThumb, savedFoods.length - 1);
       loadRecipieInfo(ct, cards[numOfCards - 1 -ct], titles[ct]);
     })
 }
