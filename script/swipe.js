@@ -90,15 +90,17 @@ $(document).ready(function () {
 
 function saveFood()
 {
-    saveCurrRecipe(recipeArray(counter)).then(value => {
+    let ct = counter;
+    saveRecipe(recipeArray[counter]).then(value => {
       savedFoods.push(value);
       localStorage.setItem("crunchy-saved-items", JSON.stringify(savedFoods));
-      reloadRecipe();
+      console.log(value);
+      createGalleryImage(value.recipe.srcMealThumb, savedFoods.length - 1);
+      loadRecipieInfo(ct, cards[numOfCards - 1 -ct], titles[ct]);
     })
 }
 
 function reloadRecipe()
 {
-    console.log("Reloaded card " + counter)
     loadRecipieInfo(counter, cards[numOfCards - 1 -counter], titles[counter]);
 }

@@ -13,7 +13,8 @@ let savedFoods = [];
 async function saveRecipe(saveRecipe)
 {
     loadingFinished = false;
-    for(let i = 0; i < ingredients.length; i++)
+    console.log(saveRecipe);
+    for(let i = 0; i < saveRecipe.ingredients.length; i++)
     {
         waitForIt();
         function waitForIt(){
@@ -25,9 +26,10 @@ async function saveRecipe(saveRecipe)
             }
         }
     }
-    //console.log(wegIngredients);
+    console.log(wegIngredients);
+    
 
-    for(let i = 0; i < ingredients.length; i++)
+    for(let i = 0; i < saveRecipe.ingredients.length; i++)
     {
         waitForIt();
         function waitForIt(){
@@ -36,24 +38,27 @@ async function saveRecipe(saveRecipe)
             } else {
                 if(wegIngredients[i] != undefined)
                 {
+                    console.log("Find price");
                     findPrice(wegIngredients[i]);
                     lookupReady = false;
                 }
                 else
                 {
+                    console.log("Pushing undefined");
                     wegPrices.push(undefined);
                 }
             }
         }
     }
-    //console.log(wegPrices);
+    console.log(wegPrices);
 
     let promise = new Promise((resolve, reject) => {
         waitForIt();
         function waitForIt(){
-            if (wegPrices.length != ingredients.length) {
+            if (wegPrices.length != saveRecipe.ingredients.length) {
                 setTimeout(function(){waitForIt()},100);
             } else {
+                console.log("Resolving promise")
                 resolve({
                     recipe: saveRecipe.recipe,
                     ingredients: saveRecipe.ingredients,
@@ -149,7 +154,7 @@ function ingredientFound(e)
 
 function findPrice(ingred)
 {
-    //console.log("HELLO");
+    console.log("HELLO");
     let xhr = new XMLHttpRequest();
 
     xhr.onload = foundPrice;
@@ -231,11 +236,12 @@ function loadSavedRecipies()
         savedFoods = JSON.parse(info);
 }
 
-findRandomRecipe();
+//findRandomRecipe();
 
 async function loadRecipieInfo(id, card, title)
 {
     let promise = new Promise((resolve, reject) => {
+        ingredients = [];
         findRandomRecipe();
         getRecipe().then(value => {
             recipeArray[id] = value;
