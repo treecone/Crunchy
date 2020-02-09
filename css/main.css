@@ -102,7 +102,7 @@ header p
     height: 100%;
     z-index: 5;
     box-shadow: 0px 50px 100px #e4e4e4;
-    top: -100%;
+    top: -150%;
     /*top -1514px for sync*/
 
     /*------------------*/
@@ -186,7 +186,7 @@ header p
     height: 100%;
     z-index: 6;
     box-shadow: 0px -50px 100px #e4e4e4;
-    top: 100%;
+    top: 150%;
     /*top -1514px for sync*/
 
     /*------------------*/
