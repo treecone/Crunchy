@@ -34,30 +34,7 @@ window.addEventListener('load', function()
                 }
         });
     }
-
-    /*async function loadRecipeGrand()
-    {
-        let promise = new Promise((resolve, reject) => {
-            loadRecipe(0);
-            function loadRecipe(i)
-            {
-                loadRecipieInfo(i, cards[i], titles[i]).then(value =>
-                    {
-                        if(i > 6)
-                        {
-                            resolve(true);
-                        }
-                        else
-                        {
-                            loadRecipe(i + 1);
-                        }
-                });
-            }
-        });
-        return await promise;
-    }*/
-
-})
+});
 
 function moveFoodWindow()
 {
