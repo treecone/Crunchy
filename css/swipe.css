@@ -166,3 +166,19 @@ body {
   text-align: center;
   font-size: 2.2rem;
 }
+.food_titles {
+  position: absolute;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  transform: translateX(-400px);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  margin-left: 5%;
+}
+.food_titles#active {
+  transform: translateX(0px);
+}
