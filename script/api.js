@@ -7,6 +7,7 @@ let wegIngredients = [];
 let wegPrices = [];
 let lookupReady = true;
 let loadingFinished = true;
+let savedFoods = [];
 
 async function saveCurrRecipe()
 {
@@ -231,6 +232,13 @@ function getIngredients()
         ingredients.push(recipe.strIngredient19);
     if(recipe.strIngredient20 == "") return;
         ingredients.push(recipe.strIngredient20);
+}
+
+loadSavedRecipies()
+{
+    let info = localStorage.getItem("crunchy-saved-items");
+    if(info)
+        savedFodds = JSON.parse(info);
 }
 
 findRandomRecipe();
