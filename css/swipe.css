@@ -178,7 +178,9 @@ body {
   display: flex;
   flex-flow: column nowrap;
   margin-left: 5%;
+  visibility: hidden;
 }
 .food_titles#active {
   transform: translateX(0px);
+  visibility: visible;
 }

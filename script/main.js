@@ -3,6 +3,9 @@ let detailMenu;
 let menuIsDown = true;
 let detailIsDown = true;
 
+let cards;
+let titles;
+
 window.addEventListener('load', function()
 { 
     foodWindow = document.querySelector("div#savedFoodWindow");
@@ -16,6 +19,44 @@ window.addEventListener('load', function()
         foodButton.addEventListener("click", moveDetailWindow);
     }
     document.querySelector("#arrowButton").addEventListener("click", moveDetailWindow);
+
+    cards = this.document.querySelectorAll(".demo__card");
+    titles = this.document.querySelectorAll(".food_titles")
+
+    loadRecipe(0);
+    function loadRecipe(i)
+    {
+        loadRecipieInfo(i, cards[i], titles[i]).then(value =>
+            {
+                if(i < 6)
+                {
+                    loadRecipe(i + 1);
+                }
+        });
+    }
+
+    /*async function loadRecipeGrand()
+    {
+        let promise = new Promise((resolve, reject) => {
+            loadRecipe(0);
+            function loadRecipe(i)
+            {
+                loadRecipieInfo(i, cards[i], titles[i]).then(value =>
+                    {
+                        if(i > 6)
+                        {
+                            resolve(true);
+                        }
+                        else
+                        {
+                            loadRecipe(i + 1);
+                        }
+                });
+            }
+        });
+        return await promise;
+    }*/
+
 })
 
 function moveFoodWindow()
