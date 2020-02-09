@@ -42,6 +42,10 @@ header
     border: none;
     width: 14vw;
 }
+#Saved_Button1 img {
+    width: 100%;
+    height: 100%;
+}
 
 header p
 {
