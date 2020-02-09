@@ -96,7 +96,7 @@ function loadDetails(galleryElement)
         else if(!savedFoods[id].wegPrices[i])
             list.innerHTML += `<dt>${savedFoods[id].ingredients[i]}</dt><dd>Wegmans: ${savedFoods[id].wegIngredients[i].name} : Price not found.</dd>`;
     }
-    detailWindow.querySelector("#foodList p").innerHTML = "Estimated Price: " + price; 
+    detailWindow.querySelector("#foodList p").innerHTML = "Estimated Price: " + price.toFixed(2); 
     detailWindow.querySelector("form").action = savedFoods[id].recipe.strSource;
 }
 
