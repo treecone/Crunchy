@@ -22,7 +22,7 @@ header
     box-shadow: 0px 50px 100px #e4e4e4;
 }
 
-.Saved_Button1
+#Saved_Button1
 {
     position: absolute;
     top: 22%;
@@ -48,7 +48,7 @@ header p
     -webkit-text-fill-color: transparent;
 }
 
-.Saved_Button1 img
+#Saved_Button1 img
 {
     width: 100%;
     height: auto;
@@ -112,13 +112,13 @@ header p
     height: 100%;
     z-index: 5;
     box-shadow: 0px 50px 100px #e4e4e4;
-    /*top: -1514px;*/
+    top: -100%;
     /*top -1514px for sync*/
 
     /*------------------*/
-    visibility: hidden;
+    visibility: visible;
     /*transform: translateY(1514px);*/
-    transition: transform 1s ease-in-out;
+    transition: transform 2s ease-out;
 }
 
 #savedFoodWindow-view
@@ -126,7 +126,7 @@ header p
     transform: translateY(0%);
 }
 
-.Saved_Button2
+#Saved_Button2
 {
     position: absolute;
     top: 90%;
@@ -136,7 +136,7 @@ header p
     width: 14vw;
 }
 
-.Saved_Button2 img
+#Saved_Button2 img
 {
     width: 100%;
     height: auto;
@@ -147,7 +147,7 @@ header p
     position: absolute;
     margin: 0%;
     padding: 1%;
-    top: 89%;
+    top: 89.5%;
     left: 31%;
     font-size: 10vw;
     font-weight: 1000;
@@ -156,4 +156,37 @@ header p
     background-clip: initial;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+/*--gallery--*/
+
+#savedImages
+{
+    position: absolute;
+    background-color: grey;
+    width:90%;
+    height: 85%;
+    top: 2.5%;
+    left: 5%;
+    padding: 50px;
+
+    overflow-y: auto;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(20, auto);
+    grid-gap: 25px 25px;
+}
+
+.galleryImg
+{
+    grid-row: span 1;
+}
+
+.galleryImg img
+{
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }

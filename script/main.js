@@ -1,22 +1,25 @@
-document.getElementsByClassName("Saved_Button").onClick = function(){ moveFoodWindow();};
+let foodWindow;
+let menuIsDown = true;
 
-
-window.document.onload = function(e)
+window.addEventListener('load', function()
 { 
-    let foodWindow = document.getElementById('savedFoodWindow');
-}
+    foodWindow = document.querySelector("div#savedFoodWindow");
+    document.querySelector("#Saved_Button1").addEventListener("click", moveFoodWindow);
+    document.querySelector("#Saved_Button2").addEventListener("click", moveFoodWindow);
+
+})
 
 function moveFoodWindow()
 {
-    console.log("Sup");
-    if(foodWindow.style.visibility == "visable")
+    if(menuIsDown)
     {
-        foodWindow.style.visibility = "hidden";
-        //foodWindow.style.transform = "translateY(0%)";
+        foodWindow.style.transform = "translateY(100%)";
+        foodWindow.style.transition = "transform 1s ease-out";
     }
     else
     {
-        foodWindow.style.visibility = "visable";
-        //foodWindow.style.transform = "translateY(100%)";
+        foodWindow.style.transform = "translateY(-100%)";
+        foodWindow.style.transition = "transform 1s ease-in";
     }
+    menuIsDown = !menuIsDown;
 }
