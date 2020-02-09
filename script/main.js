@@ -63,6 +63,8 @@ function createGalleryImage(imageLink, id)
     let galleryElement = `<fiqure class="galleryImg"><img src="${imageLink}" alt="ImageGalleryPhoto"></fiqure>`;
     //galleryElement.dataset.galleryId = id;
     document.querySelector("#savedImages").innerHTML += galleryElement;
+    document.querySelector("#savedImages").lastChild.addEventListener("click", moveDetailWindow);
+    document.querySelector("#savedImages").lastChild.dataset.galleryId = id;
     console.log("We are herer");
 }
 function ILoveWhales ()
