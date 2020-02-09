@@ -21,14 +21,14 @@ window.addEventListener('load', function()
     document.querySelector("#arrowButton").addEventListener("click", moveDetailWindow);
 
     cards = this.document.querySelectorAll(".demo__card");
-    titles = this.document.querySelectorAll(".food_titles")
+    titles = this.document.querySelectorAll(".food_titles");
 
     loadRecipe(0);
     function loadRecipe(i)
     {
-        loadRecipieInfo(i, cards[i], titles[i]).then(value =>
+        loadRecipieInfo(i, cards[numOfCards - 1 - i], titles[i]).then(value =>
             {
-                if(i < 6)
+                if(i < 5)
                 {
                     loadRecipe(i + 1);
                 }

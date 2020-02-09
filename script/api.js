@@ -25,7 +25,7 @@ async function saveRecipe(saveRecipe)
             }
         }
     }
-    console.log(wegIngredients);
+    //console.log(wegIngredients);
 
     for(let i = 0; i < ingredients.length; i++)
     {
@@ -46,7 +46,7 @@ async function saveRecipe(saveRecipe)
             }
         }
     }
-    console.log(wegPrices);
+    //console.log(wegPrices);
 
     let promise = new Promise((resolve, reject) => {
         waitForIt();
@@ -100,9 +100,9 @@ function recipeFound(e)
 {
     let xhr = e.target;
     recipe = JSON.parse(xhr.responseText).meals[0];
-    console.log(recipe);
+    //console.log(recipe);
     getIngredients();
-    console.log(ingredients);
+    //console.log(ingredients);
     loadingFinished = true;
     //findWegmansIngrediant(ingredients[0]);
 }
@@ -242,6 +242,8 @@ async function loadRecipieInfo(id, card, title)
             title.querySelector('h1').innerHTML = recipe.strMeal;
             title.querySelector('p').innerHTML = recipe.strArea;
             card.querySelector("* * img").src = recipe.strMealThumb;
+            console.log("Displaying id " + id + " for image ");
+            console.log(card.querySelector("* * img"));
             resolve(true);
             //card.children('img').attr('src', recipe.strMealThumb);
         });

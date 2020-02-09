@@ -1,10 +1,12 @@
 //Created by https://codepen.io/suez/pen/MaeVBy?editors=0010
 
+let counter = 0;
+var numOfCards = 6;
+
 $(document).ready(function () {
 
     var animating = false;
     var cardsCounter = 0;
-    var numOfCards = 6;
     var decisionVal = 80;
     var pullDeltaX = 0;
     var deg = 0;
@@ -30,6 +32,7 @@ $(document).ready(function () {
             saveFood();
         } else if (pullDeltaX <= -decisionVal) {
             $card.addClass("to-left");
+            reloadRecipe();
         }
 
         if (Math.abs(pullDeltaX) >= decisionVal) {
@@ -38,9 +41,11 @@ $(document).ready(function () {
             setTimeout(function () {
                 $card.addClass("below").removeClass("inactive to-left to-right");
                 cardsCounter++;
+                counter++;
                 $card.children('img').attr("src", "")
                 if (cardsCounter === numOfCards) {
                     cardsCounter = 0;
+                    counter = 0;
                     $(".demo__card").removeClass("below");
                 }
                 titles[cardsCounter].id = "active";
@@ -85,8 +90,15 @@ $(document).ready(function () {
 
 function saveFood()
 {
-    // saveCurrRecipe(recipeArray(cardsCounter)).then(value => {
-    //   savedFoods.push(value);
-    //   localStorage.setItem("crunchy-saved-items", JSON.stringify(savedFoods));
-    // })
+    saveCurrRecipe(recipeArray(counter)).then(value => {
+      savedFoods.push(value);
+      localStorage.setItem("crunchy-saved-items", JSON.stringify(savedFoods));
+      reloadRecipe();
+    })
+}
+
+function reloadRecipe()
+{
+    console.log("Reloaded card " + counter)
+    loadRecipieInfo(counter, cards[numOfCards - 1 -counter], titles[counter]);
 }
