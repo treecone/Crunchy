@@ -234,7 +234,7 @@ function getIngredients()
         ingredients.push(recipe.strIngredient20);
 }
 
-loadSavedRecipies()
+function loadSavedRecipies()
 {
     let info = localStorage.getItem("crunchy-saved-items");
     if(info)
@@ -242,3 +242,9 @@ loadSavedRecipies()
 }
 
 findRandomRecipe();
+
+function loadRecipieInfo(card, title)
+{
+    //title.querySelector('h1').innerHTML = ;
+    //title.querySelector('p').innerHTML = ;
+}

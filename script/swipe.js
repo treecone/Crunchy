@@ -11,7 +11,6 @@ $(document).ready(function () {
     var $card, $cardReject, $cardLike;
     var titles = document.querySelectorAll('div.food_titles');
 
-
     function pullChange() {
         animating = true;
         deg = pullDeltaX / 10;
@@ -86,9 +85,8 @@ $(document).ready(function () {
 
 function saveFood()
 {
-    saveCurrRecipe().then(value => {
-      savedFoods.push(value);
-      localStorage.setItem("crunchy-saved-items", JSON.stringify(savedFoods));
-    })
-    console.log("Food Saved");
+    // saveCurrRecipe().then(value => {
+    //   savedFoods.push(value);
+    //   localStorage.setItem("crunchy-saved-items", JSON.stringify(savedFoods));
+    // })
 }
