@@ -245,7 +245,7 @@ header p
 #urlButton
 {
     position: absolute;
-    top: 43%;
+    top: 32%;
     left: 76%;
     background: -webkit-linear-gradient(#70d33f, #4bd593);
     border-radius: 10px;
@@ -262,7 +262,7 @@ header p
 
 #foodList
 {
-    background-color: #f5f5f5;
+    background-color: #e4e4e4;
     position: absolute;
     top: 41%;
     left: 7.5%;
@@ -275,7 +275,18 @@ header p
 
 #foodList h2
 {
-    font-size: 8vw;
-    left: 10%;
+    font-size: 9vw;
+    margin: 55px auto 40px 40px;
 }
 
+#foodList p, dl
+{
+    font-size: 5vw;
+    margin: auto auto 40px 50px;
+}
+
+#foodList dd
+{
+    font-size: 2vw;
+    margin: auto auto 20px 30px;
+}
