@@ -5,7 +5,7 @@ let cards;
 let titles;
 
 window.addEventListener('load', function()
-{ 
+{
     foodWindow = document.querySelector("div#savedFoodWindow");
     detailMenu = document.querySelector("div#foodDetailWindow");
     detialWindow = document.querySelector("div#foodDetailWindow");
@@ -63,4 +63,9 @@ function createGalleryImage(imageLink, id)
     let galleryElement = `<fiqure class="galleryImg"><img src="${imageLink}" alt="ImageGalleryPhoto"></fiqure>`;
     //galleryElement.dataset.galleryId = id;
     document.querySelector("#savedImages").innerHTML += galleryElement;
+    console.log("We are herer");
+}
+function ILoveWhales ()
+{
+    document.querySelector("img#foodPicture").src = "media/whaleB.jpg"
 }
