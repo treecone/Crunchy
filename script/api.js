@@ -2,6 +2,7 @@
 //https://api.wegmans.io/products/search?query={query}[&results][&page] 
 
 let recipe;
+let recipeArray = [6];
 let ingredients = [];
 let wegIngredients = [];
 let wegPrices = [];
@@ -128,7 +129,10 @@ async function getRecipe()
             if (!loadingFinished) {
                 setTimeout(function(){waitForIt()},100);
             } else {
-                resolve(recipe);
+                resolve({
+                    recipe: recipe,
+                    ingredients: ingredients
+                });
             }
         }
     });
@@ -243,8 +247,13 @@ function loadSavedRecipies()
 
 findRandomRecipe();
 
-function loadRecipieInfo(card, title)
+function loadRecipieInfo(id, card, title)
 {
-    //title.querySelector('h1').innerHTML = ;
-    //title.querySelector('p').innerHTML = ;
+    findRandomRecipe();
+    getRecipe().then(value => {
+        recipeArray[id] = value;
+        title.querySelector('h1').innerHTML = recipe.strMeal;
+        title.querySelector('p').innerHTML = recipe.strArea;
+        card.children('img').attr('src', recipe.strMealThumb);
+    })
 }
