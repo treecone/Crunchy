@@ -15,7 +15,6 @@ async function saveRecipe(saveRecipe)
     wegIngredients = [];
     wegPrices = [];
     loadingFinished = false;
-    console.log(saveRecipe);
     for(let i = 0; i < saveRecipe.ingredients.length; i++)
     {
         waitForIt();
@@ -28,7 +27,6 @@ async function saveRecipe(saveRecipe)
             }
         }
     }
-    console.log(wegIngredients);
     
 
     for(let i = 0; i < saveRecipe.ingredients.length; i++)
@@ -50,7 +48,6 @@ async function saveRecipe(saveRecipe)
             }
         }
     }
-    console.log(wegPrices);
 
     let promise = new Promise((resolve, reject) => {
         waitForIt();
@@ -58,7 +55,6 @@ async function saveRecipe(saveRecipe)
             if (wegPrices.length != saveRecipe.ingredients.length) {
                 setTimeout(function(){waitForIt()},100);
             } else {
-                console.log("Resolving promise")
                 resolve({
                     recipe: saveRecipe.recipe,
                     ingredients: saveRecipe.ingredients,
@@ -105,9 +101,7 @@ function recipeFound(e)
 {
     let xhr = e.target;
     recipe = JSON.parse(xhr.responseText).meals[0];
-    //console.log(recipe);
     getIngredients();
-    //console.log(ingredients);
     loadingFinished = true;
     //findWegmansIngrediant(ingredients[0]);
 }
@@ -154,7 +148,6 @@ function ingredientFound(e)
 
 function findPrice(ingred)
 {
-    console.log("HELLO");
     let xhr = new XMLHttpRequest();
 
     xhr.onload = foundPrice;
@@ -173,7 +166,6 @@ function foundPrice(e)
 {
     let xhr = e.target;
     let price = JSON.parse(xhr.responseText);
-    console.log(price)
     if(price.stores[0] == undefined)
         wegPrices.push(undefined);
     else
@@ -252,8 +244,6 @@ async function loadRecipieInfo(id, card, title)
             title.querySelector('h1').innerHTML = recipe.strMeal;
             title.querySelector('p').innerHTML = recipe.strArea;
             card.querySelector("* * img").src = recipe.strMealThumb;
-            console.log("Displaying id " + id + " for image ");
-            console.log(card.querySelector("* * img"));
             resolve(true);
             //card.children('img').attr('src', recipe.strMealThumb);
         });

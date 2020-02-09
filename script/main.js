@@ -51,8 +51,6 @@ function moveFoodWindow()
 
 function moveDetailWindow (e)
 {
-    console.log("Moving detail window");
-    console.log(e.target);
     if(detailMenu.className == "up")
     {
         detailMenu.className = "";
@@ -69,14 +67,12 @@ function createGalleryImage(imageLink, id)
     let galleryElement = `<fiqure class="galleryImg"><img src="${imageLink}" alt="ImageGalleryPhoto"></fiqure>`;
     //galleryElement.dataset.galleryId = id;
     document.querySelector("#savedImages").insertAdjacentHTML("beforeend", galleryElement);
-    console.log(document.querySelector("#savedImages"));
     document.querySelector("#savedImages").lastChild.addEventListener("click", moveDetailWindow);
     document.querySelector("#savedImages").lastChild.dataset.galleryId = id;
 }
 
 function loadDetails(galleryElement)
 {
-    console.log(galleryElement);
     let id = parseInt(galleryElement.dataset.galleryId);
     let detailWindow = document.querySelector("#foodDetailWindow");
     detailWindow.querySelector("#foodPicture").src = savedFoods[id].recipe.strMealThumb;
