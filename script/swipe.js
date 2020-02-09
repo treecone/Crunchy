@@ -90,10 +90,8 @@ $(document).ready(function () {
 
 function saveFood()
 {
-    console.log("saving");
     let ct = counter;
     saveRecipe(recipeArray[counter]).then(value => {
-      console.log("saving step 2");
       savedFoods.push(value);
       localStorage.setItem("crunchy-saved-items", JSON.stringify(savedFoods));
       createGalleryImage(value.recipe.strMealThumb, savedFoods.length - 1);
