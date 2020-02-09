@@ -107,7 +107,7 @@ function ILoveWhales ()
 }
 
 function getResolution() {
-    if(screen.width > 768)
+    if(screen.width/screen.height > 0.85)
         alert("Your screen resolution is not supported for this application");
 
 }
