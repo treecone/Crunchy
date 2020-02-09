@@ -1,4 +1,17 @@
 @media only screen and (min-width: 768px) {
 
-    
+    main {
+        height: 200vh;
+    }
+    header {
+        position: relative;
+    }
+    div#foodWindow {
+        position: relative;
+
+    }
+    div#titleWindow {
+        position: relative;
+
+    }
 }
