@@ -6,15 +6,6 @@
   padding: 0;
 }
 
-html,
-body {
-  font-size: 62.5%;
-}
-
-body {
-  overflow: hidden;
-}
-
 #foodWindow{
   display: flex;
   justify-content: center;
@@ -173,12 +164,12 @@ body {
   transition: transform 0.3s;
   transition: transform 0.3s, -webkit-transform 0.3s;
   transform: translateX(-400px);
-  width: 100%;
   height: 100%;
   display: flex;
   flex-flow: column nowrap;
-  margin-left: 5%;
+  margin: 0 5%;
   visibility: hidden;
+  word-wrap: break-word;
 }
 .food_titles#active {
   transform: translateX(0px);
