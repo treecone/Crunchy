@@ -1,7 +1,11 @@
-@media only screen and (min-width: 768px) {
-
+@media only screen and (min-width: 900px) {
+    body {
+        overflow-y: visible;
+    }
     main {
         height: 200vh;
+        display: flex;
+        flex-flow: column nowrap;
     }
     header {
         position: relative;
@@ -13,5 +17,12 @@
     div#titleWindow {
         position: relative;
 
+    }
+    #foodDetailWindow
+    {
+        display: none;
+    }
+    #foodDetailWindow.up {
+        display: block;
     }
 }
