@@ -84,6 +84,11 @@ $(document).ready(function () {
     });
 });
 
-function saveFood() {
-    console.log("Food Saved")
+function saveFood()
+{
+    saveCurrRecipe().then(value => {
+      savedFoods.push(value);
+      localStorage.setItem("crunchy-saved-items", JSON.stringify(savedFoods));
+    })
+    console.log("Food Saved");
 }
