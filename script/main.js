@@ -63,12 +63,12 @@ function moveFoodWindow()
 {
     if(menuIsDown)
     {
-        foodWindow.style.transform = "translateY(100%)";
+        foodWindow.style.transform = "translateY(150%)";
         foodWindow.style.transition = "transform 1s ease-out";
     }
     else
     {
-        foodWindow.style.transform = "translateY(-100%)";
+        foodWindow.style.transform = "translateY(-150%)";
         foodWindow.style.transition = "transform 1s ease-in";
     }
     menuIsDown = !menuIsDown;
@@ -78,12 +78,12 @@ function moveDetailWindow ()
 {
     if(detailIsDown)
     {
-        detailMenu.style.transform = "translateY(-100%)";
+        detailMenu.style.transform = "translateY(-150%)";
         detailMenu.style.transition = "transform 1s ease-out";
     }
     else
     {
-        detailMenu.style.transform = "translateY(100%)";
+        detailMenu.style.transform = "translateY(150%)";
         detailMenu.style.transition = "transform 1s ease-in";
     }
     detailIsDown = !detailIsDown;
