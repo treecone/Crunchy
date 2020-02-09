@@ -65,3 +65,8 @@ function moveDetailWindow ()
     }
     detailIsDown = !detailIsDown;
 }
+
+function ILoveWhales ()
+{
+    document.querySelector("img#foodPicture").src = "media/whaleB.jpg"
+}
