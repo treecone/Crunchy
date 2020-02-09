@@ -6,54 +6,12 @@ let ingredients = [];
 let wegIngredients = [];
 let wegPrices = [];
 let lookupReady = true;
+let loadingFinished = true;
+let savedFoods = [];
 
-function saveCurrRecipe()
+async function saveCurrRecipe()
 {
-    return {
-        recipe: recipe,
-        ingredients: ingredients,
-        wegIngredients: wegIngredients,
-        wegPrices: wegPrices
-    };
-}
-
-function findWegmansIngrediant(ingred)
-{
-    var xhr = new XMLHttpRequest();
-
-    xhr.onload = ingredientFound;
-
-    let url = "https://api.wegmans.io/products/search?query=\"" + ingred + "\"&results=10&page=1&api-version=2018-10-18";
-
-    xhr.open("GET", url);
-
-    xhr.setRequestHeader("Cache-Control", "no-cache");
-    xhr.setRequestHeader("Subscription-Key", "444c1519a1094448a1fd6f6fedb13ae6");
-
-    xhr.send();
-}
-
-function findRandomRecipe()
-{
-    var xhr = new XMLHttpRequest();
-
-    xhr.onload = recipeFound;
-
-    let url = "https://www.themealdb.com/api/json/v1/1/random.php";
-
-    xhr.open("GET", url);
-
-    xhr.send();
-}
-
-function recipeFound(e)
-{
-    let xhr = e.target;
-    recipe = JSON.parse(xhr.responseText).meals[0];
-    console.log(recipe);
-    getIngredients();
-    console.log(ingredients);
-    //findWegmansIngrediant(ingredients[0]);
+    loadingFinished = false;
     for(let i = 0; i < ingredients.length; i++)
     {
         waitForIt();
@@ -88,6 +46,93 @@ function recipeFound(e)
         }
     }
     console.log(wegPrices);
+
+    function waitForIt(){
+        if (wegPrices.length != ingredients.length) {
+            setTimeout(function(){waitForIt()},100);
+        } else {
+            return {
+                recipe: recipe,
+                ingredients: ingredients,
+                wegIngredients: wegIngredients,
+                wegPrices: wegPrices
+            };
+        }
+    }
+    let promise = new Promise((resolve, reject) => {
+        waitForIt();
+        function waitForIt(){
+            if (wegPrices.length != ingredients.length) {
+                setTimeout(function(){waitForIt()},100);
+            } else {
+                resolve({
+                    recipe: recipe,
+                    ingredients: ingredients,
+                    wegIngredients: wegIngredients,
+                    wegPrices: wegPrices
+                });
+            }
+        }
+    });
+    return await promise;
+}
+
+function findWegmansIngrediant(ingred)
+{
+    var xhr = new XMLHttpRequest();
+
+    xhr.onload = ingredientFound;
+
+    let url = "https://api.wegmans.io/products/search?query=\"" + ingred + "\"&results=10&page=1&api-version=2018-10-18";
+
+    xhr.open("GET", url);
+
+    xhr.setRequestHeader("Cache-Control", "no-cache");
+    xhr.setRequestHeader("Subscription-Key", "444c1519a1094448a1fd6f6fedb13ae6");
+
+    xhr.send();
+}
+
+function findRandomRecipe()
+{
+    loadingFinished = false;
+    var xhr = new XMLHttpRequest();
+
+    xhr.onload = recipeFound;
+
+    let url = "https://www.themealdb.com/api/json/v1/1/random.php";
+
+    xhr.open("GET", url);
+
+    xhr.send();
+}
+
+function recipeFound(e)
+{
+    let xhr = e.target;
+    recipe = JSON.parse(xhr.responseText).meals[0];
+    console.log(recipe);
+    getIngredients();
+    console.log(ingredients);
+    loadingFinished = true;
+    saveCurrRecipe().then(value => console.log(value));
+    console.log(save);
+    //findWegmansIngrediant(ingredients[0]);
+}
+
+async function getRecipe()
+{
+    let promise = new Promise((resolve, reject) => {
+        waitForIt();
+        function waitForIt(){
+            if (!loadingFinished) {
+                setTimeout(function(){waitForIt()},100);
+            } else {
+                resolve(recipe);
+            }
+        }
+    });
+    return await promise;
 }
 
 function ingredientFound(e)
@@ -188,3 +233,12 @@ function getIngredients()
     if(recipe.strIngredient20 == "") return;
         ingredients.push(recipe.strIngredient20);
 }
+
+loadSavedRecipies()
+{
+    let info = localStorage.getItem("crunchy-saved-items");
+    if(info)
+        savedFodds = JSON.parse(info);
+}
+
+findRandomRecipe();

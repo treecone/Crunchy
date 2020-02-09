@@ -31,16 +31,14 @@ body {
   overflow: hidden;
   position: relative;
   height: 100%;
-  padding-top: 4.5rem;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
 }
 .demo__card-cont {
-  width: 24rem;
-  height: 90%;
-  margin: 0 auto 5rem;
+  width: 100%;
+  height: 100%;
 }
 .demo__card {
   z-index: 2;
@@ -91,6 +89,10 @@ body {
   border: 0.5rem solid #ffffff;
   background-size: cover;
   display: flex;
+}
+.demo__card__img > img{
+  width: 100%;
+  height: 100%;
 }
 .demo__card__name {
   text-align: center;
@@ -163,4 +165,20 @@ body {
 .demo__tip {
   text-align: center;
   font-size: 2.2rem;
+}
+.food_titles {
+  position: absolute;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  transform: translateX(-400px);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  margin-left: 5%;
+}
+.food_titles#active {
+  transform: translateX(0px);
 }
