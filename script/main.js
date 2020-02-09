@@ -11,16 +11,15 @@ window.addEventListener('load', function()
 
 function moveFoodWindow()
 {
-    console.log("Sup");
     if(menuIsDown)
     {
         foodWindow.style.transform = "translateY(100%)";
-        foodWindow.style.transition = "transform 2s ease-out";
+        foodWindow.style.transition = "transform 1s ease-out";
     }
     else
     {
         foodWindow.style.transform = "translateY(-100%)";
-        foodWindow.style.transition = "transform 2s ease-in";
+        foodWindow.style.transition = "transform 1s ease-in";
     }
     menuIsDown = !menuIsDown;
 }
