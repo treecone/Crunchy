@@ -6,6 +6,7 @@ let titles;
 
 window.addEventListener('load', function()
 {
+    getResolution();
     foodWindow = document.querySelector("div#savedFoodWindow");
     detailMenu = document.querySelector("div#foodDetailWindow");
     detialWindow = document.querySelector("div#foodDetailWindow");
@@ -103,4 +104,10 @@ function loadDetails(galleryElement)
 function ILoveWhales ()
 {
     document.querySelector("img#foodPicture").src = "media/whaleB.jpg"
+}
+
+function getResolution() {
+    if(screen.width > 768)
+        alert("Your screen resolution is not supported for this application");
+
 }
