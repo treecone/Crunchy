@@ -32,6 +32,8 @@ window.addEventListener('load', function()
                 }
         });
     }
+
+    loadSavedRecipies();
 });
 
 function moveFoodWindow()

@@ -233,7 +233,11 @@ function loadSavedRecipies()
 {
     let info = localStorage.getItem("crunchy-saved-items");
     if(info)
+    {
         savedFoods = JSON.parse(info);
+        for(let i = 0; i < savedFoods.length; i++)
+            createGalleryImage(savedFoods[i].recipe.strMealThumb, i);
+    }
 }
 
 //findRandomRecipe();
@@ -255,4 +259,9 @@ async function loadRecipieInfo(id, card, title)
         });
     });
     return await promise;
+}
+
+function clearLocal()
+{
+    localStorage.setItem("crunchy-saved-items", "");
 }
