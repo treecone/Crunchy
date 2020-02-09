@@ -24,6 +24,7 @@ $(document).ready(function() {
 
     if (pullDeltaX >= decisionVal) {
       $card.addClass("to-right");
+      saveFood();
     } else if (pullDeltaX <= -decisionVal) {
       $card.addClass("to-left");
     }
@@ -75,5 +76,9 @@ $(document).ready(function() {
       release();
     });
   });
-
 });
+
+function saveFood()
+{
+    console.log("Food Saved")
+}
