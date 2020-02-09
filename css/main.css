@@ -1,20 +1,25 @@
+html, body {
+    overflow:hidden;
+    height:100%;
+    width: 100%;
+  }
 body
 {
-    background-color: #f6f6f6;
     margin: 0px;
     padding: 0px;
-    height: 100vh;
     width: 100vw;
-}
-
-main {
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    position: sticky;
 }
 
 @font-face {
     font-family: "Traffolight";
     src: url("/fonts/Traffolight.otf");
+}
+
+main {
+    height: 100%;
+    width: 100%;
 }
 
 /*----------------Navbar------------------*/
@@ -57,7 +62,7 @@ header p
 #Saved_Button1 img
 {
     width: 100%;
-    height: auto;
+    height: 100%;
 }
 
 /*-------------FOOD_WINDOW-------------*/
@@ -103,16 +108,19 @@ header p
 {
     background-color: white;
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     z-index: 5;
-    top: -100%;
+    top: -150%;
     /*top -1514px for sync*/
 
     /*------------------*/
     visibility: visible;
-    /*transform: translateY(1514px);*/
-    transition: transform 2s ease-out;
+    transition: transform 1s ease-in-out;
+}
+
+#savedFoodWindow.down {
+    transform: translateY(150%);
 }
 
 #Saved_Button2
@@ -128,7 +136,7 @@ header p
 #Saved_Button2 img
 {
     width: 100%;
-    height: auto;
+    height: 100%;
 }
 
 #savedFoodWindow p
@@ -189,13 +197,16 @@ header p
     width: 100%;
     height: 100%;
     z-index: 6;
-    top: 100%;
+    top: 150%;
     /*top -1514px for sync*/
 
     /*------------------*/
     visibility: visible;
-    /*transform: translateY(1514px);*/
-    transition: transform 2s ease-out;
+    transition: transform 1s ease-in-out;
+}
+
+#foodDetailWindow.up {
+    transform: translateY(-150%);
 }
 
 #foodPicture
@@ -219,6 +230,10 @@ header p
     border: none;
     width: 15vw;
 }
+#arrowButton img {
+    width: 100%;
+    height: 100%;
+}
 
 #urlButton
 {
@@ -241,3 +256,4 @@ header p
     width: 80%;
     height: 50%;
 }
+

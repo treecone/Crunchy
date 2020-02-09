@@ -1,13 +1,11 @@
 let foodWindow;
 let detailMenu;
-let menuIsDown = true;
-let detailIsDown = true;
 
 let cards;
 let titles;
 
 window.addEventListener('load', function()
-{ 
+{
     foodWindow = document.querySelector("div#savedFoodWindow");
     detailMenu = document.querySelector("div#foodDetailWindow");
     detialWindow = document.querySelector("div#foodDetailWindow");
@@ -38,34 +36,36 @@ window.addEventListener('load', function()
 
 function moveFoodWindow()
 {
-    if(menuIsDown)
+    if(foodWindow.className == "down")
     {
-        foodWindow.style.transform = "translateY(150%)";
-        foodWindow.style.transition = "transform 1s ease-out";
+        foodWindow.className = "";
     }
     else
     {
-        foodWindow.style.transform = "translateY(-150%)";
-        foodWindow.style.transition = "transform 1s ease-in";
+        foodWindow.className = "down";
     }
-    menuIsDown = !menuIsDown;
 }
 
 function moveDetailWindow ()
 {
-    if(detailIsDown)
+    if(detailMenu.className == "up")
     {
-        detailMenu.style.transform = "translateY(-150%)";
-        detailMenu.style.transition = "transform 1s ease-out";
+        detailMenu.className = "";
     }
     else
     {
-        detailMenu.style.transform = "translateY(150%)";
-        detailMenu.style.transition = "transform 1s ease-in";
+        detailMenu.className = "up";
     }
-    detailIsDown = !detailIsDown;
 }
 
+function createGalleryImage(imageLink, id)
+{
+    console.log("We here");
+    let galleryElement = `<fiqure class="galleryImg"><img src="${imageLink}" alt="ImageGalleryPhoto"></fiqure>`;
+    //galleryElement.dataset.galleryId = id;
+    document.querySelector("#savedImages").innerHTML = galleryElement;
+    console.log("We are herer");
+}
 function ILoveWhales ()
 {
     document.querySelector("img#foodPicture").src = "media/whaleB.jpg"
