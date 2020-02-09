@@ -10,7 +10,7 @@ let lookupReady = true;
 let loadingFinished = true;
 let savedFoods = [];
 
-async function saveCurrRecipe()
+async function saveRecipe(saveRecipe)
 {
     loadingFinished = false;
     for(let i = 0; i < ingredients.length; i++)
@@ -20,7 +20,7 @@ async function saveCurrRecipe()
             if (!lookupReady) {
                 setTimeout(function(){waitForIt()},100);
             } else {
-                findWegmansIngrediant(ingredients[i]);
+                findWegmansIngrediant(saveRecipe.ingredients[i]);
                 lookupReady = false;
             }
         }
@@ -48,18 +48,6 @@ async function saveCurrRecipe()
     }
     console.log(wegPrices);
 
-    function waitForIt(){
-        if (wegPrices.length != ingredients.length) {
-            setTimeout(function(){waitForIt()},100);
-        } else {
-            return {
-                recipe: recipe,
-                ingredients: ingredients,
-                wegIngredients: wegIngredients,
-                wegPrices: wegPrices
-            };
-        }
-    }
     let promise = new Promise((resolve, reject) => {
         waitForIt();
         function waitForIt(){
@@ -67,8 +55,8 @@ async function saveCurrRecipe()
                 setTimeout(function(){waitForIt()},100);
             } else {
                 resolve({
-                    recipe: recipe,
-                    ingredients: ingredients,
+                    recipe: saveRecipe.recipe,
+                    ingredients: saveRecipe.ingredients,
                     wegIngredients: wegIngredients,
                     wegPrices: wegPrices
                 });
@@ -116,8 +104,6 @@ function recipeFound(e)
     getIngredients();
     console.log(ingredients);
     loadingFinished = true;
-    saveCurrRecipe().then(value => console.log(value));
-    console.log(save);
     //findWegmansIngrediant(ingredients[0]);
 }
 
@@ -242,18 +228,23 @@ function loadSavedRecipies()
 {
     let info = localStorage.getItem("crunchy-saved-items");
     if(info)
-        savedFodds = JSON.parse(info);
+        savedFoods = JSON.parse(info);
 }
 
 findRandomRecipe();
 
-function loadRecipieInfo(id, card, title)
+async function loadRecipieInfo(id, card, title)
 {
-    findRandomRecipe();
-    getRecipe().then(value => {
-        recipeArray[id] = value;
-        title.querySelector('h1').innerHTML = recipe.strMeal;
-        title.querySelector('p').innerHTML = recipe.strArea;
-        card.children('img').attr('src', recipe.strMealThumb);
-    })
+    let promise = new Promise((resolve, reject) => {
+        findRandomRecipe();
+        getRecipe().then(value => {
+            recipeArray[id] = value;
+            title.querySelector('h1').innerHTML = recipe.strMeal;
+            title.querySelector('p').innerHTML = recipe.strArea;
+            card.querySelector("* * img").src = recipe.strMealThumb;
+            resolve(true);
+            //card.children('img').attr('src', recipe.strMealThumb);
+        });
+    });
+    return await promise;
 }
