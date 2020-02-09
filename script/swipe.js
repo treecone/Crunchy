@@ -85,7 +85,7 @@ $(document).ready(function () {
 
 function saveFood()
 {
-    // saveCurrRecipe().then(value => {
+    // saveCurrRecipe(recipeArray(cardsCounter)).then(value => {
     //   savedFoods.push(value);
     //   localStorage.setItem("crunchy-saved-items", JSON.stringify(savedFoods));
     // })
